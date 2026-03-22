@@ -1,0 +1,34 @@
+!SESSION 2026-03-22 19:37:53.592 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\NBNB\Documents\GitHub\SPI_test
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-22 19:38:02.169
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-22 19:38:02.171
+!MESSAGE Log4j2 initialized with config file C:\Users\NBNB\Documents\GitHub\SPI_test\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-22 19:38:06.036
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-03-22 19:39:39.597 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-22 19:39:47.778
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-22 19:39:47.782
+!MESSAGE Log4j2 initialized with config file C:\Users\NBNB\Documents\GitHub\SPI_test\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-22 19:39:51.339
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-22 19:39:57.060
+!MESSAGE Indexed 'test' (19 sources, 108 headers) in 4.04 sec: 8,217 declarations; 28,305 references; 7 unresolved inclusions; 791 syntax errors; 1,158 unresolved names (3.1%)
