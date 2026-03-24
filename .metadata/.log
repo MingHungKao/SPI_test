@@ -32,3 +32,41 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\NBNB\Document
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-03-22 19:39:57.060
 !MESSAGE Indexed 'test' (19 sources, 108 headers) in 4.04 sec: 8,217 declarations; 28,305 references; 7 unresolved inclusions; 791 syntax errors; 1,158 unresolved names (3.1%)
+!SESSION 2026-03-22 20:54:20.137 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-22 20:54:33.951
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-22 20:54:33.951
+!MESSAGE Log4j2 initialized with config file C:\Users\NBNB\Documents\GitHub\SPI_test\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-22 20:54:39.726
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-22 20:54:42.323
+!MESSAGE Indexed 'test' (19 sources, 109 headers) in 2.45 sec: 8,229 declarations; 30,161 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.44%)
+!SESSION 2026-03-23 20:09:47.401 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-23 20:09:52.757
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-23 20:09:52.761
+!MESSAGE Log4j2 initialized with config file C:\Users\NBNB\Documents\GitHub\SPI_test\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-23 20:09:58.725
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-23 20:10:01.280
+!MESSAGE Indexed 'test' (19 sources, 109 headers) in 2.42 sec: 8,229 declarations; 30,161 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.44%)
