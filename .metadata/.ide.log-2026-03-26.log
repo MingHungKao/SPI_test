@@ -1,0 +1,43 @@
+2026-03-26 07:08:37,712 [INFO] WebApp:194 - Connection lost
+2026-03-26 19:15:15,445 [INFO] WebApp:191 - Connection restablished
+2026-03-26 19:15:17,107 [INFO] WebApp:194 - Connection lost
+2026-03-26 19:15:17,345 [INFO] WebApp:191 - Connection restablished
+2026-03-26 19:17:01,957 [INFO] WebApp:194 - Connection lost
+2026-03-26 19:17:02,158 [INFO] WebApp:191 - Connection restablished
+2026-03-26 21:01:40,125 [INFO] WebApp:194 - Connection lost
+2026-03-26 21:01:52,696 [INFO] WebApp:191 - Connection restablished
+2026-03-26 21:01:56,017 [INFO] WebApp:194 - Connection lost
+2026-03-26 21:01:56,166 [INFO] WebApp:191 - Connection restablished
+2026-03-26 21:40:08,113 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 821039264 Bytes (1073741824)
+2026-03-26 21:40:11,350 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 860358816 Bytes (1073741824)
+2026-03-26 21:40:12,009 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2026-03-26 21:40:12,009 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-03-26 21:40:12,009 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-03-26 21:40:12,010 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-03-26 21:40:12,010 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-03-26 21:40:12,011 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2026-03-26 21:40:12,219 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\license.tmp_save
+2026-03-26 21:40:12,465 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\license.tmp
+2026-03-26 21:40:12,528 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\gpio.tmp_save
+2026-03-26 21:40:12,650 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\gpio.tmp
+2026-03-26 21:40:12,761 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_it.c_save
+2026-03-26 21:40:12,977 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_it.c
+2026-03-26 21:40:12,988 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_it.h_save
+2026-03-26 21:40:13,067 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_it.h
+2026-03-26 21:40:13,088 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_hal_msp.c_save
+2026-03-26 21:40:13,227 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_hal_msp.c
+2026-03-26 21:40:13,235 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\system.tmp_save
+2026-03-26 21:40:13,304 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\system.tmp
+2026-03-26 21:40:13,324 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_hal_conf.h_save
+2026-03-26 21:40:13,394 [INFO] CodeEngine:345 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_hal_conf.h
+2026-03-26 21:40:13,432 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\main.h_save
+2026-03-26 21:40:13,529 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\main.h
+2026-03-26 21:40:13,541 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\main.c_save
+2026-03-26 21:40:13,662 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\main.c
+2026-03-26 21:40:14,077 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 245mS.
+2026-03-26 21:40:14,081 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-03-26 21:40:14,156 [INFO] ConfigFileManager:1595 - The Die is : DIE466
+2026-03-26 21:40:15,380 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1298mS.
+2026-03-26 21:40:15,381 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2026-03-26 21:40:15,386 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-03-26 23:58:42,649 [INFO] WebApp:194 - Connection lost

@@ -146,12 +146,10 @@ int main(void)
 	  HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
 	  HAL_Delay(500);
 
-	  //***********FAN**************
       HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_RESET);   // turn on fan
       HAL_Delay(1000);
       HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_SET);   // turn off fan
       HAL_Delay(1000);
-	  //***********FAN**************
 
 
 

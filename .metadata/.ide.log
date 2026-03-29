@@ -1,9 +1,60 @@
-2026-03-25 18:47:34,253 [INFO] WebApp:191 - Connection restablished
-2026-03-25 18:47:35,211 [INFO] WebApp:194 - Connection lost
-2026-03-25 18:47:35,236 [INFO] WebApp:191 - Connection restablished
-2026-03-25 18:47:37,220 [INFO] WebApp:194 - Connection lost
-2026-03-25 18:47:37,807 [INFO] WebApp:191 - Connection restablished
-2026-03-25 18:49:23,696 [INFO] WebApp:194 - Connection lost
-2026-03-25 18:49:23,993 [INFO] WebApp:191 - Connection restablished
-2026-03-25 22:20:27,866 [INFO] WebApp:194 - Connection lost
-2026-03-25 22:20:28,228 [INFO] WebApp:191 - Connection restablished
+2026-03-28 09:28:27,037 [INFO] WebApp:191 - Connection restablished
+2026-03-28 09:28:29,625 [INFO] WebApp:194 - Connection lost
+2026-03-28 09:28:29,903 [INFO] WebApp:191 - Connection restablished
+2026-03-28 09:28:30,083 [INFO] WebApp:194 - Connection lost
+2026-03-28 09:28:30,283 [INFO] WebApp:191 - Connection restablished
+2026-03-28 09:30:15,452 [INFO] WebApp:194 - Connection lost
+2026-03-28 09:30:15,645 [INFO] WebApp:191 - Connection restablished
+2026-03-28 13:17:36,250 [INFO] WebApp:194 - Connection lost
+2026-03-28 13:17:48,187 [INFO] WebApp:191 - Connection restablished
+2026-03-28 13:17:51,025 [INFO] WebApp:194 - Connection lost
+2026-03-28 13:17:51,276 [INFO] WebApp:191 - Connection restablished
+2026-03-28 14:11:29,149 [INFO] WebApp:194 - Connection lost
+2026-03-28 14:23:54,073 [INFO] WebApp:191 - Connection restablished
+2026-03-28 14:23:56,954 [INFO] WebApp:194 - Connection lost
+2026-03-28 14:23:57,070 [INFO] WebApp:191 - Connection restablished
+2026-03-28 14:35:37,550 [INFO] Gpio:278 - dependency for GPIO [RCC, SPI2]
+2026-03-28 14:38:43,678 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 952115512 Bytes (1073741824)
+2026-03-28 14:38:46,257 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 1006712792 Bytes (1073741824)
+2026-03-28 14:38:47,245 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2026-03-28 14:38:47,247 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-03-28 14:38:47,247 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-03-28 14:38:47,247 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-03-28 14:38:47,248 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-03-28 14:38:47,253 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2026-03-28 14:38:47,628 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\license.tmp_save
+2026-03-28 14:38:47,924 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\license.tmp
+2026-03-28 14:38:48,024 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\gpio.tmp_save
+2026-03-28 14:38:48,164 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\gpio.tmp
+2026-03-28 14:38:48,296 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_it.c_save
+2026-03-28 14:38:48,591 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_it.c
+2026-03-28 14:38:48,604 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_it.h_save
+2026-03-28 14:38:48,711 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_it.h
+2026-03-28 14:38:48,740 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_hal_msp.c_save
+2026-03-28 14:38:48,923 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\stm32g0xx_hal_msp.c
+2026-03-28 14:38:48,936 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\system.tmp_save
+2026-03-28 14:38:49,039 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\MXTmpFiles\system.tmp
+2026-03-28 14:38:49,061 [INFO] CodeEngine:321 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_hal_conf.h_save
+2026-03-28 14:38:49,174 [INFO] CodeEngine:345 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\stm32g0xx_hal_conf.h
+2026-03-28 14:38:49,222 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\main.h_save
+2026-03-28 14:38:49,392 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Inc\main.h
+2026-03-28 14:38:49,405 [INFO] CodeEngine:265 - oldGeneratedFile, C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\main.c_save
+2026-03-28 14:38:49,550 [INFO] CodeEngine:289 - Generated code: C:\Users\NBNB\Documents\GitHub\SPI_test\test\Core\Src\main.c
+2026-03-28 14:38:50,078 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 310mS.
+2026-03-28 14:38:50,086 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2026-03-28 14:38:50,193 [INFO] ConfigFileManager:1595 - The Die is : DIE466
+2026-03-28 14:38:52,002 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1916mS.
+2026-03-28 14:38:52,003 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-03-28 14:38:52,004 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2026-03-28 14:45:23,959 [INFO] WebApp:194 - Connection lost
+2026-03-28 14:45:24,184 [INFO] WebApp:191 - Connection restablished
+2026-03-28 15:25:14,339 [INFO] WebApp:194 - Connection lost
+2026-03-28 15:25:14,556 [INFO] WebApp:191 - Connection restablished
+2026-03-28 17:03:43,391 [INFO] WebApp:194 - Connection lost
+2026-03-28 17:03:43,974 [INFO] WebApp:191 - Connection restablished
+2026-03-28 19:12:16,183 [INFO] WebApp:194 - Connection lost
+2026-03-28 20:34:42,849 [INFO] WebApp:191 - Connection restablished
+2026-03-28 20:34:45,022 [INFO] WebApp:194 - Connection lost
+2026-03-28 20:34:45,263 [INFO] WebApp:191 - Connection restablished
+2026-03-28 21:46:49,490 [INFO] WebApp:194 - Connection lost
+2026-03-28 21:46:49,666 [INFO] WebApp:191 - Connection restablished

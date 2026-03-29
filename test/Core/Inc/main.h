@@ -57,10 +57,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Panic_Pin GPIO_PIN_9
+#define CS_Pin GPIO_PIN_12
+#define CS_GPIO_Port GPIOB
+#define LED_Panic_Pin GPIO_PIN_11
 #define LED_Panic_GPIO_Port GPIOA
 #define Pwr_Indicator_Pin GPIO_PIN_15
 #define Pwr_Indicator_GPIO_Port GPIOA
+#define FAN_PWM_IN_Pin GPIO_PIN_3
+#define FAN_PWM_IN_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

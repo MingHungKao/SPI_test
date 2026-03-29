@@ -97,10 +97,10 @@ int main(void)
   // --- RESET ---
   txData[0] = 0xC0;
 
-  HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET);
   HAL_Delay(1);
   HAL_SPI_TransmitReceive(&hspi2, &txData[0], &rxData[0], 1, HAL_MAX_DELAY);
-  HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
 
   HAL_Delay(10);  // Give MCP25625 time to reset
 
@@ -109,16 +109,14 @@ int main(void)
   txData[1] = 0x0E;  // CANSTAT register address
   txData[2] = 0x00;  // Dummy byte to clock in response
 
-  HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_RESET); // CS LOW
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS LOW
   HAL_Delay(1);
 
   HAL_SPI_TransmitReceive(&hspi2, &txData[0], &rxData[0], 1, HAL_MAX_DELAY); // READ cmd
   HAL_SPI_TransmitReceive(&hspi2, &txData[1], &rxData[1], 1, HAL_MAX_DELAY); // Address
   HAL_SPI_TransmitReceive(&hspi2, &txData[2], &rxData[2], 1, HAL_MAX_DELAY); // Dummy
 
-  HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_SET);   // CS HIGH
-
-
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);   // CS HIGH
 
   // rxData[2] contains CANSTAT value
   // Expected: 0x80 = Configuration Mode
@@ -126,11 +124,11 @@ int main(void)
 
   if (canstat&0x80)
   {
-      HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_RESET); // Turn off panic LED
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_RESET); // Turn off panic LED
   }
   else
   {
-      HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_SET);   // Turn on panic LED
+      HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);   // Turn on panic LED
   }
 
 
@@ -145,15 +143,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
 	  HAL_Delay(500);
-
-	  //***********FAN**************
-      HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_RESET);   // turn on fan
-      HAL_Delay(1000);
-      HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_SET);   // turn off fan
-      HAL_Delay(1000);
-	  //***********FAN**************
-
-
+	 /* HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_11);
+	  HAL_Delay(500);*/
 
 
   }
@@ -288,8 +279,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(FAN_PWM_IN_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
-  HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, GPIO_PIN_SET);
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
