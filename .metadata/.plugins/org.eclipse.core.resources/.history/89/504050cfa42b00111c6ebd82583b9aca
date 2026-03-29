@@ -314,17 +314,11 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void PWR_ON_OFF(void){
 	HAL_GPIO_WritePin(GPIOB, ORIN_PWR_CTL_Pin, GPIO_PIN_SET);
-	HAL_Delay(1);
+	HAL_DELAY(1);
 	HAL_GPIO_WritePin(GPIOB, ORIN_PWR_CTL_Pin, GPIO_PIN_RESET);
 
 }
-int Jetson_Boot_Monitor(void){
-	if (HAL_GPIO_ReadPin(GPIOB, VMON_JETSON_BOOT_Pin) == GPIO_PIN_SET){
-		return 1;
-	}
-	else
-		return 0;
-}
+
 /* USER CODE END 4 */
 
 /**

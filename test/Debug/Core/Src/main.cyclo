@@ -1,5 +1,7 @@
 ../Core/Src/main.c:66:5:main	2
-../Core/Src/main.c:158:6:SystemClock_Config	3
-../Core/Src/main.c:202:13:MX_SPI2_Init	2
-../Core/Src/main.c:242:13:MX_GPIO_Init	1
-../Core/Src/main.c:289:6:Error_Handler	1
+../Core/Src/main.c:167:6:SystemClock_Config	3
+../Core/Src/main.c:211:13:MX_SPI2_Init	2
+../Core/Src/main.c:251:13:MX_GPIO_Init	1
+../Core/Src/main.c:315:6:PWR_ON_OFF	1
+../Core/Src/main.c:321:5:Jetson_Boot_Monitor	2
+../Core/Src/main.c:334:6:Error_Handler	1
