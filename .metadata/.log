@@ -148,3 +148,22 @@ java.lang.NullPointerException: Cannot read the array length because "containers
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2026-03-26 23:10:47.059
 !MESSAGE Existing sessions are:
+!SESSION 2026-03-29 14:26:06.641 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\NBNB\Documents\GitHub\SPI_test\test\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-29 14:26:12.303
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-29 14:26:12.306
+!MESSAGE Log4j2 initialized with config file C:\Users\NBNB\Documents\GitHub\SPI_test\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-29 14:26:18.548
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-29 14:26:21.335
+!MESSAGE Indexed 'test' (21 sources, 112 headers) in 2.59 sec: 8,927 declarations; 36,898 references; 3 unresolved inclusions; 26 syntax errors; 171 unresolved names (0.37%)

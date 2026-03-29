@@ -57,12 +57,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define VMON_JETSON_BOOT_Pin GPIO_PIN_0
+#define VMON_JETSON_BOOT_GPIO_Port GPIOB
 #define CS_Pin GPIO_PIN_12
 #define CS_GPIO_Port GPIOB
+#define ORIN_PWR_CTL_Pin GPIO_PIN_15
+#define ORIN_PWR_CTL_GPIO_Port GPIOB
 #define LED_Panic_Pin GPIO_PIN_11
 #define LED_Panic_GPIO_Port GPIOA
 #define Pwr_Indicator_Pin GPIO_PIN_15
 #define Pwr_Indicator_GPIO_Port GPIOA
+#define ORIN_PWR_SHDNREQ_Pin GPIO_PIN_0
+#define ORIN_PWR_SHDNREQ_GPIO_Port GPIOD
 #define FAN_PWM_IN_Pin GPIO_PIN_3
 #define FAN_PWM_IN_GPIO_Port GPIOB
 
