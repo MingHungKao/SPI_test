@@ -325,28 +325,6 @@ int Jetson_Boot_Monitor(void){
 	else
 		return 0;
 }
-void Jetson_Shut_Down(void){
-	int status=0;
-	HAL_GPIO_WritePin(GPIOD, ORIN_PWR_SHDNREQ_Pin, GPIO_PIN_SET);//Signals to Python script
-	HAL_Delay(2);
-
-	status=Jetson_Boot_Monitor();
-	if(status){
-		HAL_GPIO_WritePin(GPIOB, ORIN_PWR_CTL_Pin, GPIO_PIN_SET);//Short press
-		HAL_Delay(1);
-		HAL_GPIO_WritePin(GPIOB, ORIN_PWR_CTL_Pin, GPIO_PIN_RESET);
-
-		status=Jetson_Boot_Monitor();
-
-	}
-	else
-		return;
-	while(status){
-		HAL_GPIO_WritePin(GPIOB, ORIN_PWR_CTL_Pin, GPIO_PIN_SET);//Long press
-
-	}
-	return;
-}
 /* USER CODE END 4 */
 
 /**
