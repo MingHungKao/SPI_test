@@ -93,8 +93,8 @@ int main(void)
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 
-  //uint8_t txData[3];
-  //uint8_t rxData[3];
+  uint8_t txData[3];
+  uint8_t rxData[3];
   uint8_t canstat=verify_config();
   while(!(canstat&0x80));
 
