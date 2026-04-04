@@ -18,7 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <stdbool.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -50,11 +50,10 @@ SPI_HandleTypeDef hspi2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI2_Init(void);
+void set_bit_timing(void);
 uint8_t MCP_READ(uint8_t addr);
 void MCP_write (uint8_t address, uint8_t value);
 void MCP_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
-void FAN_ON(void);
-void FAN_OFF(void);
 bool MCP_init(void);
 void CS_LOW(void);
 void CS_HIGH(void);
@@ -99,10 +98,12 @@ int main(void)
   MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
 
+  //uint8_t txData[3];
+  //uint8_t rxData[3];
+  uint8_t canstat=MCP_READ(0x0E);
+  while(!(canstat&0x80));
 
-  while(!(MCP_init()));
-
-
+  //set_bit_timing();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,6 +115,13 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
 	  HAL_Delay(500);
+
+	  //***********FAN**************
+      //HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_RESET);   // turn off fan
+      //HAL_Delay(1000);
+      //HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_SET);   // turn on fan
+      //HAL_Delay(1000);
+	  //***********FAN**************
 
 
   }
@@ -309,7 +317,73 @@ void Jetson_Shut_Down(void){
 	return;
 }
 
+void set_bit_timing(void){
 
+	/*MCP25625_WriteReg(0x2A, 0x00);
+	MCP25625_WriteReg(0x29, 0xA1);
+	MCP25625_WriteReg(0x28, 0x03);*/
+
+	uint8_t txData[3];
+	uint8_t rxData[3];
+
+	// --- WRITE to CNF1 register (0x2A) ---
+	txData[0] = 0x02;  // WRITE command
+	txData[1] = 0x2A;  // CNF1 register address
+	txData[2] = 0x00;  // Value to write
+
+	HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_RESET); // CS LOW
+
+	HAL_SPI_TransmitReceive(&hspi2, &txData[0], &rxData[0], 1, HAL_MAX_DELAY); // WRITE cmd
+	HAL_SPI_TransmitReceive(&hspi2, &txData[1], &rxData[1], 1, HAL_MAX_DELAY); // Address
+	HAL_SPI_TransmitReceive(&hspi2, &txData[2], &rxData[2], 1, HAL_MAX_DELAY); // Data
+
+	HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_SET);   // CS HIGH
+
+	// --- READ back CNF1 (0x2A) ---
+	txData[0] = 0x03;  // READ command
+	txData[1] = 0x2A;  // CNF1 register address
+	txData[2] = 0x00;  // Dummy byte
+
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS LOW
+
+	HAL_SPI_TransmitReceive(&hspi2, &txData[0], &rxData[0], 1, HAL_MAX_DELAY);
+	HAL_SPI_TransmitReceive(&hspi2, &txData[1], &rxData[1], 1, HAL_MAX_DELAY);
+	HAL_SPI_TransmitReceive(&hspi2, &txData[2], &rxData[2], 1, HAL_MAX_DELAY);
+
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);   // CS HIGH
+
+	////////////////////////////////////////////////
+
+
+	// --- WRITE 0xA1 to register 0x29 ---
+	/*txData[0] = 0x02;  // WRITE command
+	txData[1] = 0x29;  // Register address
+	txData[2] = 0xA1;  // Value to write
+
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS LOW
+
+	HAL_SPI_TransmitReceive(&hspi2, &txData[0], &rxData[0], 1, HAL_MAX_DELAY); // WRITE cmd
+	HAL_SPI_TransmitReceive(&hspi2, &txData[1], &rxData[1], 1, HAL_MAX_DELAY); // Address
+	HAL_SPI_TransmitReceive(&hspi2, &txData[2], &rxData[2], 1, HAL_MAX_DELAY); // Data
+
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET);   // CS HIGH*/
+
+	uint8_t cnf1 = rxData[2];  // Should be 0x00 if write succeeded
+
+	if (cnf1==0xA1){
+		HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_RESET); // Turn off panic LED
+
+	}
+	else{
+		HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_SET); // Turn on panic LED
+		HAL_Delay(100);
+		HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_RESET); // Turn off panic LED
+
+
+
+	}
+
+}
 uint8_t MCP_READ(uint8_t addr){
 	uint8_t txData[3]={0x03, addr,0x00};
 	uint8_t rxData[3]={0};
@@ -330,25 +404,24 @@ void MCP_write (uint8_t address, uint8_t value)
 
     uint8_t tx[3] = {0x02, address, value };
 
-    CS_LOW();
+    CS_low();
     (void)HAL_SPI_Transmit(&hspi2, tx, 3, HAL_MAX_DELAY);
-    CS_HIGH();
+    CS_high();
 }
 
 void MCP_bit_modify(uint8_t address, uint8_t mask, uint8_t data)
 {
 
-    uint8_t tx[4] = { 0x05, address, mask, data };
+    uint8_t tx[4] = { MCP_CMD_BIT_MODIFY, address, mask, data };
 
-    CS_LOW();
+    CS_low();
     (void)HAL_SPI_Transmit(&hspi2, tx, 4, HAL_MAX_DELAY);
-    CS_HIGH();
+    CS_high();
 }
 
 void MCP_reset(void){
-	uint8_t cmd=0xC0;
 	CS_LOW();
-	(void)HAL_SPI_Transmit(&hspi2, &cmd, 1, HAL_MAX_DELAY);
+	(void)HAL_SPI_Transmit(&hspi2, 0xC0, 1, HAL_MAX_DELAY);
 	CS_HIGH();
 }
 
@@ -376,12 +449,6 @@ bool MCP_init(void) {
 	return true;
 
 
-}
-void FAN_ON(void){
-	HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_SET);   // turn on fan
-}
-void FAN_OFF(void){
-	HAL_GPIO_WritePin(GPIOB, FAN_PWM_IN_Pin, GPIO_PIN_RESET);   // turn off fan
 }
 void CS_LOW(void){
 	HAL_GPIO_WritePin(GPIOB, CS_Pin, GPIO_PIN_RESET); // CS LOW
