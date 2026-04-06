@@ -120,47 +120,7 @@ int main(void)
 
   while(!(MCP_init()));//Check if it's configured as normal mode
 
-  // Switch to loopback mode
-  while(!(MCP_set_loopback_mode()));
 
-  // Build test frame
-  CanFrame tx_frame = {0};
-  tx_frame.id      = 0x12345678;
-  tx_frame.dlc     = 4;
-  tx_frame.data[0] = 0xDE;
-  tx_frame.data[1] = 0xAD;
-  tx_frame.data[2] = 0xBE;
-  tx_frame.data[3] = 0xEF;
-
-  // Send
-  bool sent = MCP_send_frame(&tx_frame);
-
-  HAL_Delay(10); // Wait for loopback
-
-  // Receive
-  CanFrame rx_frame = {0};
-  bool received = MCP_receive_frame(&rx_frame);
-
-  // Verify
-  if (sent && received                         &&
-      rx_frame.id      == tx_frame.id          &&
-      rx_frame.dlc     == tx_frame.dlc         &&
-      rx_frame.data[0] == tx_frame.data[0]     &&
-      rx_frame.data[1] == tx_frame.data[1]     &&
-      rx_frame.data[2] == tx_frame.data[2]     &&
-      rx_frame.data[3] == tx_frame.data[3])
-  {
-	    // SUCCESS - fast blink
-	    while(1) {
-	        HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
-	        HAL_Delay(100);
-	    }
-
-  }
-  else{
-	  // Panic LED on = failed
-	  HAL_GPIO_WritePin(GPIOA, LED_Panic_Pin, GPIO_PIN_SET);
-  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -170,8 +130,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  //HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
-	 // HAL_Delay(500);
+	  HAL_GPIO_TogglePin(GPIOA, Pwr_Indicator_Pin);
+	  HAL_Delay(500);
 
 
   }
