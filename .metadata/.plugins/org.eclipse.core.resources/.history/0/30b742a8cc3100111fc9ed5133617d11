@@ -596,7 +596,7 @@ void MCP_reset(void){
 bool MCP_set_loopback_mode(void) {
 	MCP_bit_modify(MCP_CANCTRL,MCP_CANCTRL_REQOP_Msk ,0x40);
 			for ( int i =0; i < 1000; i++) {
-					uint8_t canstat = MCP_READ(MCP_CANSTAT);
+					uint8_t canstat = MCP_read_byte(MCP_CANSTAT);
 					if ( (canstat & MCP_CANCTRL_REQOP_Msk) == 0x40) {
 						return true;
 					}
