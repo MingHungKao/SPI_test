@@ -116,7 +116,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  while(!(MCP_init()));//Check if it's configured as normal mode
+  while(!(MCP_init()));
 
 
   /* USER CODE END 2 */

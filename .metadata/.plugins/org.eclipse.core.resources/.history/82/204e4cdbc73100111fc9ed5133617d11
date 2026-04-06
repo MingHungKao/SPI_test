@@ -116,7 +116,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  while(!(MCP_init()));//Check if it's configured as normal mode
+  while(!(MCP_init()));
 
 
   /* USER CODE END 2 */
@@ -547,7 +547,7 @@ bool MCP_send_frame(const CanFrame *frame)
 }
 
 
-bool MCP_receive_frame(CanFrame *frame)
+/*bool MCP_receive_frame(CanFrame *frame)
 {
     if (frame == NULL) return false;
 
@@ -583,7 +583,7 @@ bool MCP_receive_frame(CanFrame *frame)
 
     return false;
 }
-
+*/
 void MCP_reset(void){
 	uint8_t cmd=0xC0;
 	CS_LOW();

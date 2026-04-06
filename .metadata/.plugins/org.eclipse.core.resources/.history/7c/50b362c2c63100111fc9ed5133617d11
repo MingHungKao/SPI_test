@@ -56,7 +56,6 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI2_Init(void);
 uint8_t MCP_READ(uint8_t addr);
-bool MCP_read_bytes(uint8_t address, uint8_t *output, uint8_t length);
 void MCP_write_byte (uint8_t address, uint8_t value);
 bool MCP_write_bytes(uint8_t address, uint8_t const *value, uint8_t length);
 void MCP_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
@@ -116,7 +115,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  while(!(MCP_init()));//Check if it's configured as normal mode
+  while(!(MCP_init()));
 
 
   /* USER CODE END 2 */
@@ -341,32 +340,6 @@ uint8_t MCP_READ(uint8_t addr){
 	return rxData[2];
 }
 
-
-bool MCP_read_bytes(uint8_t address, uint8_t *output, uint8_t length) {
-
-
-	//if (!MCP_confirm_attach()) return false;
-	    if (length == 0) return true;
-	    if (length > 13) return false;
-
-	    uint8_t total = 2 + length;
-	    uint8_t tx[15] = {0};
-	    uint8_t rx[15] = {0};
-
-	    tx[0] = MCP_CMD_READ;
-	    tx[1] = address;
-
-
-	    CS_LOW();
-	    (void)HAL_SPI_TransmitReceive(&hspi2, tx, rx, total, HAL_MAX_DELAY);
-	    CS_HIGH();
-
-	    for (uint8_t i = 0; i < length; i++) {
-	        output[i] = rx[2 + i];
-	    }
-	    return true;
-}
-
 void MCP_write_byte (uint8_t address, uint8_t value)
 {
 
@@ -378,7 +351,7 @@ void MCP_write_byte (uint8_t address, uint8_t value)
 }
 
 bool MCP_write_bytes(uint8_t address, uint8_t const *value, uint8_t length) {
-	//if (!MCP_confirm_attach()) return false;
+	if (!MCP_confirm_attach()) return false;
 		    if (length == 0) return true;
 		    if (length > 13) return false;
 
@@ -393,9 +366,9 @@ bool MCP_write_bytes(uint8_t address, uint8_t const *value, uint8_t length) {
 		  }
 
 
-		  CS_LOW();
-		  bool ok = (HAL_SPI_Transmit(&hspi2, tx, total, HAL_MAX_DELAY) == HAL_OK);
-		  CS_HIGH();
+		  CS_low();
+		  bool ok = (HAL_SPI_Transmit(mcp_hspi, tx, total, HAL_MAX_DELAY) == HAL_OK);
+		  CS_high();
 
 		  return ok;
 
@@ -472,11 +445,11 @@ void mcp_unpack_raw_to_frame(const uint8_t raw[13], CanFrame *out)
     }
 }
 
-bool MCP_receive_raw(uint8_t * rx_buffer_0, uint8_t * rx_buffer_1) {
+/*bool MCP_receive_raw(uint8_t * rx_buffer_0, uint8_t * rx_buffer_1) {
 
 
 
-		uint8_t canintf = MCP_READ(0x2C);//MCP_CANINTF
+		uint8_t canintf = MCP_read_byte(0x2C);//MCP_CANINTF
 
 	 if ( canintf & MCP_CANINTF_RX0IF) {
 		if( !MCP_read_bytes(MCP_RXB0SIDH, rx_buffer_0, 13)) {
@@ -496,7 +469,7 @@ bool MCP_receive_raw(uint8_t * rx_buffer_0, uint8_t * rx_buffer_1) {
 	 	     }
 
 	 return false;
-}
+}*/
 
 
 bool MCP_sending_raw(const uint8_t * tx_buffer)  {
@@ -547,7 +520,7 @@ bool MCP_send_frame(const CanFrame *frame)
 }
 
 
-bool MCP_receive_frame(CanFrame *frame)
+/*bool MCP_receive_frame(CanFrame *frame)
 {
     if (frame == NULL) return false;
 
@@ -583,7 +556,7 @@ bool MCP_receive_frame(CanFrame *frame)
 
     return false;
 }
-
+*/
 void MCP_reset(void){
 	uint8_t cmd=0xC0;
 	CS_LOW();
@@ -596,19 +569,19 @@ bool MCP_init(void) {
 
 	MCP_reset();
 
-	if (!(MCP_READ(0x0E)&0x80)) {//If it's not in configuration mode, return false
+	if (!(MCP_READ(0x0E)&0x80)) {
 		return false;
 	}
 
-	MCP_write_byte(0x2A, 0xC0);//CNF1
-	MCP_write_byte(0x29, 0x9E);//CNF2
-	MCP_write_byte(0x28, 0x03);//CNF3
+	MCP_write(0x2A, 0xC0);//CNF1
+	MCP_write(0x29, 0x9E);//CNF2
+	MCP_write(0x28, 0x03);//CNF3
 
 	MCP_bit_modify(0x0F, 0xE0, 0x00); //Set normal mode in canctrl
 
 	HAL_Delay(2);
 
-	if (MCP_READ(0x0E)!=0x00) {//Check if it's in normal mode
+	if (MCP_READ(0x0E)!=0x00) {
 		return false;
 	}
 

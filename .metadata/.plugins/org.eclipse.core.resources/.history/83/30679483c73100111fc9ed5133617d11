@@ -116,7 +116,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
 
-  while(!(MCP_init()));//Check if it's configured as normal mode
+  while(!(MCP_init()));
 
 
   /* USER CODE END 2 */
@@ -357,9 +357,9 @@ bool MCP_read_bytes(uint8_t address, uint8_t *output, uint8_t length) {
 	    tx[1] = address;
 
 
-	    CS_LOW();
-	    (void)HAL_SPI_TransmitReceive(&hspi2, tx, rx, total, HAL_MAX_DELAY);
-	    CS_HIGH();
+	    CS_low();
+	    (void)HAL_SPI_TransmitReceive(mcp_hspi, tx, rx, total, HAL_MAX_DELAY);
+	    CS_high();
 
 	    for (uint8_t i = 0; i < length; i++) {
 	        output[i] = rx[2 + i];
@@ -476,7 +476,7 @@ bool MCP_receive_raw(uint8_t * rx_buffer_0, uint8_t * rx_buffer_1) {
 
 
 
-		uint8_t canintf = MCP_READ(0x2C);//MCP_CANINTF
+		uint8_t canintf = MCP_read_byte(0x2C);//MCP_CANINTF
 
 	 if ( canintf & MCP_CANINTF_RX0IF) {
 		if( !MCP_read_bytes(MCP_RXB0SIDH, rx_buffer_0, 13)) {
@@ -547,7 +547,7 @@ bool MCP_send_frame(const CanFrame *frame)
 }
 
 
-bool MCP_receive_frame(CanFrame *frame)
+/*bool MCP_receive_frame(CanFrame *frame)
 {
     if (frame == NULL) return false;
 
@@ -583,7 +583,7 @@ bool MCP_receive_frame(CanFrame *frame)
 
     return false;
 }
-
+*/
 void MCP_reset(void){
 	uint8_t cmd=0xC0;
 	CS_LOW();
